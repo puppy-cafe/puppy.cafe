@@ -1,0 +1,12 @@
+{
+  "compose_form.publish": "Bark",
+  "privacy.direct.short": "Direct",
+  "privacy.private.short": "Followers-only",
+  "privacy.public.short": "Public",
+  "privacy.unlisted.short": "Unlisted",
+  "notification.favourite": "{name} gave you a treat",
+  "notification.follow": "{name} joined your table",
+  "notification.mention": "{name} barked at you",
+  "notification.reblog": "{name} barked with you",
+  "notifications.clear": "Clear notifications"
+} 
