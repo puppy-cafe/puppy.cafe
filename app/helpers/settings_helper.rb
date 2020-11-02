@@ -2,6 +2,7 @@
 
 module SettingsHelper
   HUMAN_LOCALES = {
+    'en-PC': 'English (Puppy Cafe)',
     ar: 'العربية',
     ast: 'Asturianu',
     bg: 'Български',
