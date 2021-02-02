@@ -7,7 +7,6 @@ class AboutController < ApplicationController
 
   layout 'public'
 
-  before_action :require_open_federation!, only: [:show, :more]
   before_action :set_body_classes, only: :show
   before_action :set_instance_presenter
   before_action :set_expires_in, only: [:more, :terms]
@@ -25,6 +24,7 @@ class AboutController < ApplicationController
     @contents          = toc_generator.html
     @table_of_contents = toc_generator.toc
     @blocks            = DomainBlock.with_user_facing_limitations.by_severity if display_blocks?
+    @allows            = InstanceFilter.new(allowed: true).results
   end
 
   def terms; end
@@ -35,10 +35,6 @@ class AboutController < ApplicationController
   helper_method :new_user
 
   private
-
-  def require_open_federation!
-    not_found if whitelist_mode?
-  end
 
   def display_blocks?
     Setting.show_domain_blocks == 'all' || (Setting.show_domain_blocks == 'users' && user_signed_in?)
